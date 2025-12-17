@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Filoxera | Vino con Historia</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // FONDO: Azul Profundo (Navy Blue)
+                        bg: {
+                            main: '#051e3e',    // Azul marino oscuro
+                            card: '#0a254a',    // Azul ligeramente más claro para tarjetas
+                            dark: '#020d1c',    // Casi negro para footer/hero
+                        },
+                        // TEXTO: Blanco Puro y Oro Brillante
+                        txt: {
+                            light: '#ffffff',   // BLANCO PURO (No gris)
+                            gold: '#ffb700',    // Dorado Brillante (Opuesto al azul)
+                            orange: '#ff8800',  // Naranja vivo para acentos
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Raleway"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Sombra brillante para botellas */
+        .bottle-glow {
+            filter: drop-shadow(0 0 10px rgba(255, 183, 0, 0.2));
+            transition: all 0.4s ease;
+        }
+        .wine-card:hover .bottle-glow {
+            transform: translateY(-5px) scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(255, 183, 0, 0.5));
+        }
+        /* Borde brillante al pasar el mouse */
+        .wine-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .wine-card:hover {
+            border-color: #ffb700;
+            background-color: #0f2e5a;
+        }
+    </style>
+</head>
+<body class="bg-bg-main text-txt-light font-sans antialiased">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-bg-dark/95 border-b border-txt-gold/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-wine-glass text-txt-gold text-3xl"></i>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold text-white tracking-widest leading-none">LA FILOXERA</span>
+                    <span class="text-[10px] text-txt-gold uppercase tracking-[0.3em]">Wine Bar</span>
+                </div>
+            </div>
+            
+            <!-- Menú Escritorio -->
+            <div class="hidden md:flex gap-10">
+                <a href="#inicio" class="text-white hover:text-txt-gold text-sm font-bold uppercase tracking-widest transition-colors">Inicio</a>
+                <a href="#menu" class="text-white hover:text-txt-gold text-sm font-bold uppercase tracking-widest transition-colors">La Carta</a>
+                <a href="#historia" class="text-white hover:text-txt-gold text-sm font-bold uppercase tracking-widest transition-colors">Historia</a>
+            </div>
+
+            <!-- Botón Reservar -->
+            <button class="bg-txt-gold text-bg-dark px-8 py-3 rounded-sm font-bold uppercase tracking-wide hover:bg-white transition-colors">
+                Reservar
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="inicio" class="relative min-h-screen flex items-center justify-center pt-24 bg-bg-dark overflow-hidden">
+        <!-- Elementos decorativos de fondo -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-txt-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl">
+            <h2 class="text-txt-gold font-bold text-sm md:text-base uppercase tracking-[0.4em] mb-6 animate-pulse">
+                Experiencia Gastronómica
+            </h2>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
+                VINO CON <span class="text-txt-gold">HISTORIA</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white font-light max-w-3xl mx-auto mb-12 leading-relaxed">
+                Descubre nuestra selección de vinos resilientes. Una carta curada desde la Ribera del Duero hasta Baja California.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#menu" class="border-2 border-txt-gold text-txt-gold px-10 py-4 font-bold uppercase tracking-widest hover:bg-txt-gold hover:text-bg-dark transition-all">
+                    Ver Menú
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN DE MENÚ -->
+    <section id="menu" class="py-24 bg-bg-main relative">
+        <div class=" max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            
+            <div class="text-center mb-20">
+                <i class="fa-solid fa-grapes text-txt-gold text-4xl mb-4"></i>
+                <h2 class="font-serif text-5xl text-white mb-4">Nuestra Selección</h2>
+                <div class="w-32 h-1 bg-txt-gold mx-auto"></div>
+            </div>
+
+            <!-- 1. VINOS BLANCOS -->
+            <div class="mb-24">
+                <div class="flex items-center gap-6 mb-10 border-b border-white/10 pb-4">
+                    <h3 class="font-serif text-4xl text-txt-gold">Vinos Blancos</h3>
+                    <span class="text-white/60 text-lg font-light italic hidden md:inline">- Frescura y Elegancia</span>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- PROTOS VERDEJO -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://www.bodegasprotos.com/wp-content/uploads/2019/07/Verdejo-1.jpg" class="h-full object-contain bottle-glow" alt="Protos Verdejo">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Protos Verdejo</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Rueda, España</p>
+                            <p class="text-white text-base font-light mb-6">Aromas a fruta tropical y notas de hinojo. En boca es fresco y con un agradable final.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Gambas al ajillo, Ceviche</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SANTO TOMAS -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://www.vinasa.mx/wp-content/uploads/2021/12/Vino-blanco-santo-tomas-ST-Chardonnay-750ml.jpg-1.png" class="h-full object-contain bottle-glow" alt="Santo Tomas Chardonnay">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Santo Tomás</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Baja California, MX</p>
+                            <p class="text-white text-base font-light mb-6">Chardonnay. Notas de piña, manzana verde y cítricos. Acidez brillante.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Paella, Tacos Gobernador</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LA LINDA -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://lalinda.com/wp-content/uploads/2022/09/torrontes.png" class="h-full object-contain bottle-glow" alt="La Linda Torrontes">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">La Linda</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Salta, Argentina</p>
+                            <p class="text-white text-base font-light mb-6">Torrontés. Muy aromático, flores blancas y durazno. Final seco.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Pulpo a la gallega</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. VINOS TINTOS -->
+            <div class="mb-24">
+                <div class="flex items-center gap-6 mb-10 border-b border-white/10 pb-4">
+                    <h3 class="font-serif text-4xl text-txt-orange">Vinos Tintos</h3>
+                    <span class="text-white/60 text-lg font-light italic hidden md:inline">- Cuerpo y Carácter</span>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- PROTOS 9 MESES -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group border-t-4 border-txt-orange">
+                         <div class="absolute top-4 right-4 bg-txt-orange text-bg-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase">Ecológico</div>
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://www.bodegasprotos.com/wp-content/uploads/2021/12/galeria-vinos-9MESES-2.jpg" class="h-full object-contain bottle-glow" alt="Protos 9 Meses">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Protos 9 Meses</h4>
+                            <p class="text-txt-orange text-xs font-bold uppercase tracking-widest mb-4">Ribera del Duero</p>
+                            <p class="text-white text-base font-light mb-6">Fruta negra madura, tostados suaves y especias ligeras. Tanino redondo.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-orange mr-2"></i>Cordero lechal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SURCO ROJO -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://www.mexicancellars.com.au/cdn/shop/products/SurcoRojo_low-res_gradient_1280x.jpg?v=1642215683" class="h-full object-contain bottle-glow" alt="Surco Rojo">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Surco Rojo</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Valle de San Vicente</p>
+                            <p class="text-white text-base font-light mb-6">Cabernet & Nebbiolo. Potente, notas de zarzamora, tabaco y cuero.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Rabo de toro, Mole</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LUIGI BOSCA -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://alcornoque.mx/cdn/shop/files/vino-tinto-luigi-bosca-malbec.jpg?v=1750639024" class="h-full object-contain bottle-glow" alt="Luigi Bosca Malbec">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Luigi Bosca</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Mendoza, Arg</p>
+                            <p class="text-white text-base font-light mb-6">Malbec. Ciruela madura, violetas y chocolate. Cuerpo sedoso y elegante.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Cortes de carne</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 3. ROSADOS -->
+             <div class="mb-12">
+                <div class="flex items-center gap-6 mb-10 border-b border-white/10 pb-4">
+                    <h3 class="font-serif text-4xl text-pink-400">Vinos Rosados</h3>
+                    <span class="text-white/60 text-lg font-light italic hidden md:inline">- Sutiles y Vibrantes</span>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- PROTOS CLARETE -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group border-t-4 border-pink-400">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://www.bodegasprotos.com/wp-content/uploads/2020/03/Clarete2.jpg" class="h-full object-contain bottle-glow" alt="Protos Clarete">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Protos Clarete</h4>
+                            <p class="text-pink-400 text-xs font-bold uppercase tracking-widest mb-4">Cigales, España</p>
+                            <p class="text-white text-base font-light mb-6">Notas de frutos rojos, fresa fresca, goloso y muy equilibrado.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-pink-400 mr-2"></i>Arroz a banda, chile en nogada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROSADO MEXICO -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://benvolere.mx/wp-content/uploads/2022/05/rosado-st.jpg" class="h-full object-contain bottle-glow" alt="Rosado Mexico">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">Rosado México</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Baja California</p>
+                            <p class="text-white text-base font-light mb-6">Grenache. Cereza roja, cáscara de toronja y flores. Refrescante.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Cochinita Pibil</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LA LINDA ROSE (¡IMAGEN AÑADIDA!) -->
+                    <div class="wine-card bg-bg-card p-8 rounded-lg relative group">
+                        <div class="h-72 flex justify-center items-center mb-8">
+                            <img src="https://lalinda.com/wp-content/uploads/2022/09/rose.png" class="h-full object-contain bottle-glow" alt="La Linda Rose">
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-serif text-2xl font-bold text-white mb-2">La Linda Rose</h4>
+                            <p class="text-txt-gold text-xs font-bold uppercase tracking-widest mb-4">Mendoza, Arg</p>
+                            <p class="text-white text-base font-light mb-6">Malbec. Aroma a frutos rojos, frambuesa y rosas. Ligero y moderno.</p>
+                            <div class="border-t border-white/20 pt-4">
+                                <p class="text-sm font-bold text-white"><i class="fa-solid fa-utensils text-txt-gold mr-2"></i>Ensalada Rusa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg-dark border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <span class="font-serif text-3xl text-txt-gold font-bold mb-6 block">LA FILOXERA</span>
+                <p class="text-white text-sm leading-relaxed opacity-80">
+                    Un homenaje a la historia de la vid. 
+                    <br>Donde la tradición europea se une con la resiliencia americana.
+                </p>
+            </div>
+            
+            <div class="flex flex-col gap-4 items-center md:items-start">
+                <h5 class="text-txt-gold font-bold uppercase tracking-widest text-sm">Visítanos</h5>
+                <p class="text-white text-sm">Calle del Vino 45, CDMX</p>
+                <div class="flex gap-4 mt-2">
+                    <a href="#" class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-txt-gold hover:text-bg-dark transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-txt-gold hover:text-bg-dark transition-all"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 items-center md:items-start">
+                <h5 class="text-txt-gold font-bold uppercase tracking-widest text-sm">Horario</h5>
+                <p class="text-white text-sm">Mar - Sáb: 13:00 - 23:00</p>
+                <p class="text-white text-sm">Dom: 13:00 - 18:00</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-white/5">
+            <p class="text-xs text-white/40">&copy; 2025 La Filoxera Wine Bar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
